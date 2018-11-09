@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flexbox Challenge</title>
+    <style>
+        /* Reset Initial */
+        html, body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Create Application with 2 flex box
+        block from top to bottom */
+        .application {
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            background-color: royalblue;
+        }
+
+        /* Top flex block */
+        .application__nav {
+            display: flex;
+            flex-direction: row;
+            width: calc(100% - 20px);
+            height: 50px;
+            padding: 10px;
+        }
+
+        .nav__resetButton {
+            flex-grow: 1;
+            padding: 20px;
+            line-height: 10px;
+            background-color: cornflowerblue;
+        }
+
+        .nav__resetButton:hover {
+            background-color: aliceblue;
+        }
+
+        /* Bottom flex block */
+        .application__container {
+            display: flex;
+            flex-flow: row wrap;
+            align-content: flex-start;
+            justify-content: space-between;
+            align-self: center;
+            width: calc(100% - 100px);
+            height: calc(100% - 150px);
+            margin: 30px;
+            background-color: cornflowerblue;
+        }
+
+        /* Boxes from left to right in wrapper, 30%
+        width push them to the new line.  */
+        .container__box {
+            border: 1px solid white;
+            width: calc(33.333333% - 22px);
+            height: calc(33.333333% - 22px);
+            margin: 10px;
+        }
+
+        .container__box--gray {
+            background-color: gray;
+        }
+
+        .container__box:hover {
+            background-color: aliceblue;
+        }
+    </style>
+</head>
+<body>
+<main class="application">
+    <div class="application__nav">
+        <button class="nav__resetButton" onclick="resetGame()">RESET</button>
+    </div>
+    <div class="application__container">
+        <div class="container__box container__box--gray" onclick="hideBox(this)"></div>
+        <div class="container__box container__box--gray" onclick="hideBox(this)"></div>
+        <div class="container__box container__box--gray" onclick="hideBox(this)"></div>
+        <div class="container__box container__box--gray" onclick="hideBox(this)"></div>
+        <div class="container__box container__box--gray" onclick="hideBox(this)"></div>
+        <div class="container__box container__box--gray" onclick="hideBox(this)"></div>
+        <div class="container__box container__box--gray" onclick="hideBox(this)"></div>
+        <div class="container__box container__box--gray" onclick="hideBox(this)"></div>
+        <div class="container__box container__box--gray" onclick="hideBox(this)"></div>
+    </div>
+</main>
+<script>
+    function hideBox(element) {
+        element.style.display = 'none';
+    }
+
+    function resetGame() {
+        document.querySelectorAll('.container__box')
+            .forEach(function (element) {
+                element.style.display = 'initial'
+            });
+    }
+</script>
+</body>
+</html>
